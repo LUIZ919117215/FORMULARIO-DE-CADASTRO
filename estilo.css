@@ -1,0 +1,60 @@
+/* estilizações principais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: burlywood;
+    font-size: 26px;
+}
+main {
+    height: 870px;
+    width: 600px;
+    padding: 19px;
+    background-color: #a8a8c8; 
+    border-radius: 25px;
+    box-shadow:-6px -6px 34px 1px #0000001f, 6px 6px 34px 1px #0000001f;
+}
+
+/* estilizações do formulário */
+main form#folhaDeCadastro {
+    height: 570px;
+    margin: 55px 0px;
+    padding: 12px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: #7d3636;
+    border-radius: 12.5px;
+    border: 2px solid black;
+    box-shadow:-6px -6px 34px 1px #0000001f, 6px 6px 34px 1px #0000001f;
+    font-weight: bold;
+}
+main form#folhaDeCadastro section {
+    padding: 0 12px;
+    display: flex;
+    flex-direction: column;
+}
+main form#folhaDeCadastro section input {
+    height: 50px;
+    border-radius: 6.25px;
+}
+
+/* estilizações do botão */
+footer {
+    height: 80px;
+    margin: -40px 0;
+}
+footer > button#btnSub {
+    height: 100%;
+    width: 100%;
+    border-radius: 12.5px;
+    font-size: 40px;
+    font-style: italic;
+}
