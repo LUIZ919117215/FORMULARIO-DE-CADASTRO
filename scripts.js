@@ -1,3 +1,4 @@
+const adicionarNoInput =  (idInput, resInput) => document.getElementById(idInput).value = resInput
 
 
 document.getElementById('cep').addEventListener('blur', (e) => {
@@ -6,7 +7,8 @@ document.getElementById('cep').addEventListener('blur', (e) => {
         .then(response => response.json())
         .then(result => {
             console.log(result)
-            document.getElementById('estado').value = result.estado
+            adicionarNoInput('cidade', result.localidade)
+            adicionarNoInput('estado', result.estado)
         })
         .catch(error => {
 
