@@ -16,6 +16,6 @@ document.getElementById('cep').addEventListener('blur', (e) => {
             adicionarNoInput('estado', result.estado)
         })
         .catch(error => {
-
+            return document.getElementById('avisos').innerText = `Erro: ${error}`
         })
 })
