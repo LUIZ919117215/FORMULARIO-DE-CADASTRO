@@ -16,7 +16,7 @@ document.getElementById('cep').addEventListener('blur', (e) => {
             adicionarNoInput('estado', result.estado)
 
             document.getElementById('btnSub').addEventListener('click', () => {
-                console.log('clicou')    
+                localStorage.setItem(inputValue, JSON.stringify(result))
             })
         })
         .catch(error => {
