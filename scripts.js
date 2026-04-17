@@ -14,6 +14,10 @@ document.getElementById('cep').addEventListener('blur', (e) => {
             console.log(result)
             adicionarNoInput('cidade', result.localidade)
             adicionarNoInput('estado', result.estado)
+
+            document.getElementById('btnSub').addEventListener('click', () => {
+                console.log('clicou')    
+            })
         })
         .catch(error => {
             return document.getElementById('avisos').innerText = `Erro: ${error}`
