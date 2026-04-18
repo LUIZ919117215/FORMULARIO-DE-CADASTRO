@@ -2,6 +2,17 @@ const adicionarNoInput = (idInput, resInput) => document.getElementById(idInput)
 const removerTravessão = (cep) => cep.split("").filter(num => num !== '-').join("")
 const verifLetraCep = (cep) => String(Number(cep)) === 'NaN'
 
+document.addEventListener('DOMContentLoaded', () => {
+    let inforUsuario = JSON.parse(localStorage.getItem('cep'))
+    if (!inforUsuario!==null) {
+        adicionarNoInput('cep', inforUsuario.cep)
+        adicionarNoInput('bairro', inforUsuario.bairro)
+        adicionarNoInput('cidade', inforUsuario.localidade)
+        adicionarNoInput('estado', inforUsuario.estado)
+        adicionarNoInput('regiao', inforUsuario.regiao)
+    }
+})
+
 document.getElementById('cep').addEventListener('blur', (e) => {
     const inputValue = removerTravessão(e.target.value)
 
@@ -16,7 +27,7 @@ document.getElementById('cep').addEventListener('blur', (e) => {
             adicionarNoInput('estado', result.estado)
 
             document.getElementById('btnSub').addEventListener('click', () => {
-                localStorage.setItem(inputValue, JSON.stringify(result))
+                localStorage.setItem('cep', JSON.stringify(result))
             })
         })
         .catch(error => {
