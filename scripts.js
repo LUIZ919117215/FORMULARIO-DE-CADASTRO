@@ -1,5 +1,4 @@
 const adicionarNoInput = (idInput, resInput) => document.getElementById(idInput).value = resInput
-
 const adicionaMultInput = (id1, id2, id3, id4, id5, cep, bairro, cidade, estado, regiao) => {
     const ids = [id1, id2, id3, id4, id5] 
     const infors = [ cep, bairro, estado, cidade, regiao ]
@@ -27,9 +26,7 @@ document.getElementById('cep').addEventListener('blur', (e) => {
     fetch(`https://viacep.com.br/ws/${inputValue}/json/`)
         .then(response => response.json())
         .then(result => {
-            console.log(result)
-            adicionarNoInput('cidade', result.localidade)
-            adicionarNoInput('estado', result.estado)
+        adicionaMultInput('cep', 'bairro', 'cidade', 'estado', 'regiao', result.cep, result.bairro, result.localidade, result.estado, result.regiao)
 
             document.getElementById('btnSub').addEventListener('click', () => {
                 localStorage.setItem('cep', JSON.stringify(result))
