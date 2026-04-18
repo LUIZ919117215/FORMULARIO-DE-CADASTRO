@@ -1,15 +1,20 @@
 const adicionarNoInput = (idInput, resInput) => document.getElementById(idInput).value = resInput
+
+const adicionaMultInput = (id1, id2, id3, id4, id5, cep, bairro, cidade, estado, regiao) => {
+    const ids = [id1, id2, id3, id4, id5] 
+    const infors = [ cep, bairro, estado, cidade, regiao ]
+    for ( let i = 0; i < 5; i++ ) {
+        adicionarNoInput(ids[i], infors[i])
+    };
+}
+
 const removerTravessão = (cep) => cep.split("").filter(num => num !== '-').join("")
 const verifLetraCep = (cep) => String(Number(cep)) === 'NaN'
 
 document.addEventListener('DOMContentLoaded', () => {
     let inforUsuario = JSON.parse(localStorage.getItem('cep'))
     if (!inforUsuario!==null) {
-        adicionarNoInput('cep', inforUsuario.cep)
-        adicionarNoInput('bairro', inforUsuario.bairro)
-        adicionarNoInput('cidade', inforUsuario.localidade)
-        adicionarNoInput('estado', inforUsuario.estado)
-        adicionarNoInput('regiao', inforUsuario.regiao)
+        adicionaMultInput('cep', 'bairro', 'cidade', 'estado', 'regiao', inforUsuario.cep, inforUsuario.bairro, inforUsuario.localidade, inforUsuario.estado, inforUsuario.regiao)
     }
 })
 
